@@ -1,0 +1,147 @@
+/* Général */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+}
+
+/* Conteneur principal */
+.container {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Arrière-plan */
+.background {
+    background: url('Piggy.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 0 0 20px #000;
+}
+
+/* Slider */
+.slider {
+    margin: 20px auto;
+    width: 80%;
+    height: 450%;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bouton de téléchargement */
+.download-button-container {
+    margin-top: 20px;
+}
+
+.download-button {
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    border: 2px solid #00ffff;
+    border-radius: 30px;
+    background: transparent;
+    color: white;
+    text-shadow: 0 0 5px #00ffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.download-button:hover {
+    background: #00ffff;
+    color: black;
+    box-shadow: 0 0 25px #00ffff;
+}
+
+.Releasetitle {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    animation: glitch-effect 0.5s infinite, color-change 8s infinite; /* Cycle complet */
+    position: relative;
+}
+
+.Releasetitle::before,
+.Releasetitle::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+    text-shadow: none;
+    background: none;
+    overflow: hidden;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 33%, 0% 33%);
+    animation: glitch-effect 0.5s infinite;
+}
+
+.Releasetitle::after {
+    clip-path: polygon(0% 66%, 100% 66%, 100% 100%, 0% 100%);
+    color: red;
+    animation-delay: 0.2s;
+}
+
+/* Animation glitch pour les pseudo-éléments */
+@keyframes glitch-effect {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-2px, -2px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-2px, 2px);
+    }
+    80% {
+        transform: translate(2px, 2px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Animation color-change pour une transition fluide */
+@keyframes color-change {
+    0% {
+        color: white;
+        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    }
+    40% {
+        color: white;
+        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    }
+    50% {
+        color: #ff0000; /* Transition vers le rouge */
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
+    90% {
+        color: #ff0000;
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
+    100% {
+        color: white; /* Retour progressif au blanc */
+        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    }
+}
+
